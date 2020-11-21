@@ -2982,7 +2982,7 @@ tdsImportSqlServerSchema(ImportForeignSchemaStmt *stmt, DBPROCESS  *dbproc,
 						   "SELECT t.table_name,"
 						   "  c.column_name, "
 						   "  c.data_type, "
-						   "  c.column_default, "
+						   "  REPLACE(c.column_default, 'GETDATE()', 'CURRENT_TIMESTAMP'), "
 						   "  c.is_nullable, "
 						   "  c.character_maximum_length, "
 						   "  c.numeric_precision, "
